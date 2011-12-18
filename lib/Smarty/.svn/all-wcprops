@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/206/trunk/Boo-2.0.0/lib/Smarty
+END
+QUICK_START
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/206/trunk/Boo-2.0.0/lib/Smarty/QUICK_START
+END
+Smarty_Compiler.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/206/trunk/Boo-2.0.0/lib/Smarty/Smarty_Compiler.class.php
+END
+NEWS
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/206/trunk/Boo-2.0.0/lib/Smarty/NEWS
+END
+COPYING.lib
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/206/trunk/Boo-2.0.0/lib/Smarty/COPYING.lib
+END
+Smarty.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/206/trunk/Boo-2.0.0/lib/Smarty/Smarty.class.php
+END
+ChangeLog
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/206/trunk/Boo-2.0.0/lib/Smarty/ChangeLog
+END
+debug.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/206/trunk/Boo-2.0.0/lib/Smarty/debug.tpl
+END
+TODO
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/206/trunk/Boo-2.0.0/lib/Smarty/TODO
+END
+FAQ
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/206/trunk/Boo-2.0.0/lib/Smarty/FAQ
+END
+RELEASE_NOTES
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/206/trunk/Boo-2.0.0/lib/Smarty/RELEASE_NOTES
+END
+INSTALL
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/206/trunk/Boo-2.0.0/lib/Smarty/INSTALL
+END
+Config_File.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/206/trunk/Boo-2.0.0/lib/Smarty/Config_File.class.php
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/206/trunk/Boo-2.0.0/lib/Smarty/README
+END
+BUGS
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/206/trunk/Boo-2.0.0/lib/Smarty/BUGS
+END

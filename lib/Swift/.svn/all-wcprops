@@ -1,0 +1,167 @@
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/206/trunk/Boo-2.0.0/lib/Swift
+END
+RecipientList.php
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/206/trunk/Boo-2.0.0/lib/Swift/RecipientList.php
+END
+CRITICAL.txt
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/206/trunk/Boo-2.0.0/lib/Swift/CRITICAL.txt
+END
+LICENSE
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/206/trunk/Boo-2.0.0/lib/Swift/LICENSE
+END
+Events.php
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/206/trunk/Boo-2.0.0/lib/Swift/Events.php
+END
+CHANGES
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/206/trunk/Boo-2.0.0/lib/Swift/CHANGES
+END
+TODO
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/206/trunk/Boo-2.0.0/lib/Swift/TODO
+END
+File.php
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/206/trunk/Boo-2.0.0/lib/Swift/File.php
+END
+LogContainer.php
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/206/trunk/Boo-2.0.0/lib/Swift/LogContainer.php
+END
+Connection.php
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/206/trunk/Boo-2.0.0/lib/Swift/Connection.php
+END
+BatchMailer.php
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/206/trunk/Boo-2.0.0/lib/Swift/BatchMailer.php
+END
+Cache.php
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/206/trunk/Boo-2.0.0/lib/Swift/Cache.php
+END
+Log.php
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/206/trunk/Boo-2.0.0/lib/Swift/Log.php
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/206/trunk/Boo-2.0.0/lib/Swift/README
+END
+Message.php
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/206/trunk/Boo-2.0.0/lib/Swift/Message.php
+END
+CacheFactory.php
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/206/trunk/Boo-2.0.0/lib/Swift/CacheFactory.php
+END
+BadResponseException.php
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/206/trunk/Boo-2.0.0/lib/Swift/BadResponseException.php
+END
+ClassLoader.php
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/206/trunk/Boo-2.0.0/lib/Swift/ClassLoader.php
+END
+AddressContainer.php
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/206/trunk/Boo-2.0.0/lib/Swift/AddressContainer.php
+END
+Iterator.php
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/206/trunk/Boo-2.0.0/lib/Swift/Iterator.php
+END
+VERSION
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/206/trunk/Boo-2.0.0/lib/Swift/VERSION
+END
+ConnectionBase.php
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/206/trunk/Boo-2.0.0/lib/Swift/ConnectionBase.php
+END
+Exception.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/206/trunk/Boo-2.0.0/lib/Swift/Exception.php
+END
+ConnectionException.php
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/206/trunk/Boo-2.0.0/lib/Swift/ConnectionException.php
+END
+INSTALL
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/206/trunk/Boo-2.0.0/lib/Swift/INSTALL
+END
+Authenticator.php
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/206/trunk/Boo-2.0.0/lib/Swift/Authenticator.php
+END
+FileException.php
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/206/trunk/Boo-2.0.0/lib/Swift/FileException.php
+END
+Address.php
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/206/trunk/Boo-2.0.0/lib/Swift/Address.php
+END

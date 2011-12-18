@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/206/trunk/Boo-2.0.0/lib/Swift/Events
+END
+ResponseEvent.php
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/206/trunk/Boo-2.0.0/lib/Swift/Events/ResponseEvent.php
+END
+BeforeSendListener.php
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/206/trunk/Boo-2.0.0/lib/Swift/Events/BeforeSendListener.php
+END
+SendListener.php
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/206/trunk/Boo-2.0.0/lib/Swift/Events/SendListener.php
+END
+ConnectListener.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/206/trunk/Boo-2.0.0/lib/Swift/Events/ConnectListener.php
+END
+DisconnectEvent.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/206/trunk/Boo-2.0.0/lib/Swift/Events/DisconnectEvent.php
+END
+CommandEvent.php
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/206/trunk/Boo-2.0.0/lib/Swift/Events/CommandEvent.php
+END
+CommandListener.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/206/trunk/Boo-2.0.0/lib/Swift/Events/CommandListener.php
+END
+BeforeCommandListener.php
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/206/trunk/Boo-2.0.0/lib/Swift/Events/BeforeCommandListener.php
+END
+ConnectEvent.php
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/206/trunk/Boo-2.0.0/lib/Swift/Events/ConnectEvent.php
+END
+DisconnectListener.php
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/206/trunk/Boo-2.0.0/lib/Swift/Events/DisconnectListener.php
+END
+SendEvent.php
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/206/trunk/Boo-2.0.0/lib/Swift/Events/SendEvent.php
+END
+Listener.php
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/206/trunk/Boo-2.0.0/lib/Swift/Events/Listener.php
+END
+ListenerMapper.php
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/206/trunk/Boo-2.0.0/lib/Swift/Events/ListenerMapper.php
+END
+ResponseListener.php
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/206/trunk/Boo-2.0.0/lib/Swift/Events/ResponseListener.php
+END

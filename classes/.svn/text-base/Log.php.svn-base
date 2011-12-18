@@ -1,0 +1,57 @@
+<?php
+/* SVN FILE: $Id$ */
+/**
+ * @brief Log class.
+ * 
+ * This class is used to write lines in the log file.
+ * 
+ * @class		Boo_Log
+ * @license		http://www.gnu.org/licenses/gpl-3.0.txt GNU General Public License
+ * @link		http://code.ramaboo.com/ Boo Framework
+ * @copyright	2009 David Singer
+ * @author		David Singer <david@ramaboo.com>
+ * @version		2.0.1
+ */
+
+class Boo_Log {
+	/**
+	 * @brief Write a line to the log file.
+	 * 
+	 * @param mixed $content The content to log.
+	 * @param string $filename[optional] The log filename. Defaults to \c BOO_LOG_FILE.
+	 * @return bool Returns TRUE on success, FALSE otherwise.
+	 */
+	public static function write($content, $filename = BOO_LOG_FILE) {
+		if ($filename) {
+			if (is_array($content)) {
+				array_trim($content);
+				
+				// convert to string
+				$content = implode('|', $content) . "\n";
+			} else {
+				$content = trim($content) . "\n";
+			}
+			
+			if (is_writable($filename)) {
+				if (!$handle = fopen($filename, 'a')) {
+					trigger_error("Cannot open {$filename}, check permissions", E_USER_ERROR);
+					return false;
+				}
+				
+				if (fwrite($handle, $content) === false) {
+					trigger_error("Cannot write to {$filename}, check permissions", E_USER_ERROR);
+					return false;
+				}
+				fclose($handle);
+			} else {
+				trigger_error("Error {$filename} is not writable, check permissions" , E_USER_ERROR);
+				return false;
+			}
+		} else {
+			trigger_error("Error {$filename} is not set" , E_USER_ERROR);
+			return false;
+		}
+		
+		return true;
+	}
+}

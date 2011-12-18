@@ -1,0 +1,461 @@
+<?php
+/* SVN FILE: $Id: Qrbg.php 215 2009-03-17 01:15:42Z david@ramaboo.com $ */
+/**
+ * @brief Quantum random bit generator class.
+ * 
+ * This class provides a PHP wraper for the QRand Command-line Utility [v0.2, 2007-07-17].
+ * 
+ * The following constant must be defined:
+ * \li \c BOO_QRBG_CMD = The qrand command '/PATH_TO/./qrand'.
+ * \li \c BOO_QRBG_CACHE = Use cache (bool).
+ * \li \c BOO_QRBG_CACHE_SIZE = Size of cache, try setting to 1000.
+ * \li \c BOO_QRBG_USERNAME = Your QRBG Service username.
+ * \li \c BOO_QRBG_PASSWORD = Your QRBG Service password.
+ * 
+ * @class		Boo_Qrbg
+ * @license		http://www.gnu.org/licenses/gpl-3.0.txt GNU General Public License
+ * @link		http://code.ramaboo.com/ Boo Framework
+ * @copyright	2008 David Singer
+ * @author		David Singer <david@ramaboo.com>
+ * @version		2.0.5
+ * @required	http://random.irb.hr/ QRand Command-line Utility [v0.2, 2007-07-17]
+ */
+
+class Boo_Qrbg extends Boo_Db {
+	
+	/**
+	 * @brief Table name.
+	 */
+	const TABLE_NAME = 'boo_qrbg_cache';
+	
+	/**
+	 * @brief Primary key.
+	 */
+	const PRIMARY_KEY = 'cache_id';
+	
+	/**
+	 * @brief QRBG Service username.
+	 */
+	protected $username = BOO_QRBG_USERNAME;
+	
+	/**
+	 * @brief QRBG Service password.
+	 */
+	protected $password = BOO_QRBG_PASSWORD;
+	
+	/**
+	 * @brief QRBG Service host.
+	 */
+	protected $host = 'random.irb.hr';
+	
+	/**
+	 * @brief QRBG Service port.
+	 */
+	protected $port = '1227';
+	
+	/**
+	 * @brief Default constructor.
+	 * @return void.
+	 * @param string $username[optional] Your QRBG Service username.
+	 * @param string $password[optional] Your QRBG Service password.
+	 */
+	public function __construct($username = false, $password = false) {
+		parent::__construct(self::TABLE_NAME, self::PRIMARY_KEY);
+		
+		if ($username !== false) {
+			$this->setUsername($username);
+		}
+		
+		if ($password !== false ) {
+			$this->setPassword($password);
+		}
+		
+		$this->setTableName($tableName);
+		$this->setPrimaryKey($primaryKey);
+	}
+	
+	/**
+	 * @brief Sets the username.
+	 * @return bool Returns TRUE on success, FALSE otherwise.
+	 * @param string $username The username.
+	 */
+	public function setUsername($username) {
+		$username = trim($username);
+		
+		if (Boo_Validator::isUsername($username)) {
+			$this->username = $username;
+			return true;
+		} else {
+			trigger_error("Username {$username} is not valid", E_USER_ERROR);
+			return false;
+		}
+	}
+	
+	/**
+	 * @brief Gets the username.
+	 * @return string The username.
+	 */
+	public function getUsername() { return $this->username; }
+	
+	/**
+	 * @brief Sets the password.
+	 * @return bool Returns TRUE on success, FALSE otherwise.
+	 * @param string $password The password.
+	 */
+	public function setPassword($password) {
+		$password = trim($password);
+		
+		if (Boo_Validator::isPassword($password)) {
+			$this->password = $password;
+			return true;
+		} else {
+			trigger_error('Password (hidden) is not valid', E_USER_ERROR);
+			return false;
+		}
+	}
+	
+	/**
+	 * @brief Gets the password.
+	 * @return string The password.
+	 */
+	public function getPassword() { return $this->password; }
+	
+	/**
+	 * @brief Sets the port number.
+	 * @return bool Returns TRUE on success, FALSE otherwise.
+	 * @param int $port The port number.
+	 */
+	public function setPort($port) {
+		$port = (int) $port;
+		
+		if (Boo_Validator::isInt($port, 0, 65535)) {
+			$this->port = $port;
+			return true;
+		} else {
+			trigger_error("Port {$port} is not valid", E_USER_ERROR);
+			return false;
+		}
+	}
+	
+	/**
+	 * @brief Gets the port number.
+	 * @return int The port number
+	 */
+	public function getPort() { return $this->port; }
+	
+	/**
+	 * @brief Sets the host.
+	 * @return bool Returns TRUE on success, FALSE otherwise.
+	 * @param sring $host The host.
+	 */
+	public function setHost($host) {
+		$host = trim($host);
+		
+		if (Boo_Validator::isURL($host)) {
+			$this->host = $host;
+			return true;
+		} else {
+			trigger_error("Host {$host} is not valid", E_USER_ERROR);
+			return false;
+		}
+		
+	}
+	
+	/**
+	 * @brief Gets the host.
+	 * @return string The host.
+	 */
+	public function getHost() { return $this->host; }
+	
+	/**
+	 * @brief Gets a 16-bit integer.
+	 * @return int 16-bit integer on success, FALSE otherwise.
+	 */
+	public function getInt8() {
+		$exec = $this->exec('int8');
+		return isset($exec[0]) ? (int) $exec[0] : false;
+	}
+	
+	/**
+	 * @brief Gets a 16-bit integer.
+	 * @return int 16-bit integer on success, FALSE otherwise.
+	 */
+	public function getInt16() {
+		$exec = $this->exec('int16');
+		return isset($exec[0]) ? (int) $exec[0] : false;
+	}
+	
+	/**
+	 * @brief Gets a an integer.
+	 * @return int Integer on success, FALSE otherwise.
+	 */
+	public function getInt() {
+		$exec = $this->exec('int');
+		return isset($exec[0]) ? (int) $exec[0] : false;
+	}
+	
+	/**
+	 * @brief Gets a 32-bit integer.
+	 * @return int 32-bit integer on success, FALSE otherwise.
+	 */
+	public function getInt32() {
+		$exec = $this->exec('int32');
+		return isset($exec[0]) ? (int) $exec[0] : false;
+	}
+	
+	/**
+	 * @brief Gets a 64-bit integer.
+	 * @return int 64-bit integer on success, FALSE otherwise.
+	 * @warning May not work as expected. 64-bit support is not really up to par.
+	 */
+	public function getInt64() {
+		$exec = $this->exec('int64');
+		return isset($exec[0]) ? (int) $exec[0] : false;
+	}
+	
+	/**
+	 * @brief Gets a long integer.
+	 * @return int Long integer on success, FALSE otherwise.
+	 * @warning May not work as expected. 64-bit support is not really up to par.
+	 */
+	public function getLongInt() {
+		$exec = $this->exec('longlong');
+		return isset($exec[0]) ? (int) $exec[0] : false;
+	}
+	
+	/**
+	 * @brief Gets a byte.
+	 * @return int byte on success, FALSE otherwise.
+	 * @warning May not work as expected. PHP has no support for a single byte data type.
+	 */
+	public function getByte() {
+		$exec = $this->exec('byte');
+		return isset($exec[0]) ? (int) $exec[0] : false;
+	}
+	
+	/**
+	 * @brief Gets a float.
+	 * @return float Float on success, FALSE otherwise.
+	 */
+	public function getFloat() {
+		$exec = $this->exec('float');
+		return isset($exec[0]) ? (float) $exec[0] : false;
+	}
+	
+	/**
+	 * @brief Gets a double.
+	 * @return double Double on success, FALSE otherwise.
+	 * @warning May not work as expected. PHP has poor support for a doubles.
+	 */
+	public function getDouble() {
+		$exec = $this->exec('double');
+		return isset($exec[0]) ? (double) $exec[0] : false;
+	}
+	
+	/**
+	 * @brief Returns array of bytes.
+	 * @return array Array of bytes.
+	 * @param int $count The number of items to return.
+	 * @see Boo_Qrbg::getByte()
+	 */
+	public function getBytes($count) {
+		return $this->exec('byte', $count);
+	}
+	
+	/**
+	 * @brief Returns array of integers.
+	 * @return array Array of integers.
+	 * @param int $count The number of items to return.
+	 * @see Boo_Qrbg::getInt()
+	 */
+	public function getInts($count) {
+		return $this->exec('int', $count);
+	}
+	
+	/**
+	 * @brief Returns array of long integers.
+	 * @return array Array of long integers.
+	 * @param int $count The number of items to return.
+	 * @see Boo_Qrbg::getLongInt()
+	 */
+	public function getLongInts($count) {
+		return $this->exec('longlong', $count);
+	}
+	
+	/**
+	 * @brief Returns array of floats.
+	 * @return array Array of floats.
+	 * @param int $count The number of items to return.
+	 * @see Boo_Qrbg::getFloat()
+	 */
+	public function getFloats($count) {
+		return $this->exec('float', $count);
+	}
+	
+	/**
+	 * @brief Returns array of doubles.
+	 * @return array Array of doubles.
+	 * @param int $count The number of items to return.
+	 * @see Boo_Qrbg::getDouble()
+	 */
+	public function getDoubles($count) {
+		return $this->exec('double', $count);
+	}
+	
+	/**
+	 * @brief Executes QRand or grabs value form cache.
+	 * @return mixed Returns value on success, FALSE otherwise.
+	 * @param string $type[optional] Data type.
+	 * @param int $count[optional] Number of values to return.
+	 */
+	protected function exec($type = 'int', $count = 1) {
+		$type = strtolower(trim($type));
+		$count = (int) $count;
+		$output = array();
+		
+		if (BOO_QRBG_CACHE && $count == 1) { // cache is only supported for single requests
+			// try cache
+			
+			$dbh = Boo_Db::connect();
+			$stmt = $dbh->prepare("SELECT * FROM {$this->tableName} WHERE type = :type LIMIT 1");
+			
+			$stmt->bindParam(':type', $type);
+			$stmt->bindColumn($this->primaryKey, $cacheId);
+			$stmt->bindColumn('value', $value);
+			
+			try {
+				$stmt->execute();
+				$result = $stmt->fetch(PDO::FETCH_BOUND);
+				if (!$result) {
+					// no rows found, fill cache
+					
+					$cache = array(); // array for cache
+					exec(BOO_QRBG_CMD . " --user=\"{$this->username}\" --pass=\"{$this->password}\" --count=\"" 
+						. BOO_QRBG_CACHE_SIZE . "\" --type=\"{$type}\" --text", $cache);
+					
+					if (empty($cache)) {
+						trigger_error('Cache is empty, check BOO_QRBG_CMD', E_USER_ERROR);
+						return false;
+					}
+					
+					// remove one item from cache for ouput
+					$output[0] = array_pop($cache);
+					
+					// save the rest to the database
+					$this->saveCache($cache, $type);
+					
+				} else {
+					// row found, set output
+					$this->removeCacheById($cacheId);
+					$output[0] = $value;
+				
+				}
+			} catch (Exception $e) {
+				trigger_error($e->getMessage(), E_USER_ERROR);
+				return false;
+			}
+			
+		} else {
+			// do not use cache
+			exec(BOO_QRBG_CMD . " --user=\"{$this->username}\" --pass=\"{$this->password}\""
+				." --count=\"{$count}\" --type=\"{$type}\" --text", $output);
+				
+			if (empty($output)) {
+				trigger_error('Error output is empty', E_USER_ERROR);
+				return false;
+			}
+		}
+		return $output;
+	}
+	
+	/**
+	 * @brief Removies item form cache.
+	 * @return bool Returns TRUE on success, FALSE otherwise.
+	 * @param int $cacheId The cache ID.
+	 */
+	protected function removeCacheById($cacheId) {
+		$dbh = Boo_Db::connect();
+		$stmt = $dbh->prepare("DELETE FROM {$this->tableName} WHERE {$this->primaryKey} = :cache_id LIMIT 1");
+		$stmt->bindParam(':cache_id', $cacheId);
+		
+		try {
+			$stmt->execute();
+		} catch (Exception $e) {
+			trigger_error($e->getMessage(), E_USER_ERROR);
+			return false;
+		}
+		return true;
+	}
+	
+	/**
+	 * @brief Saves an item to cache.
+	 * @return bool Returns TRUE on success, FALSE otherwise.
+	 * @param mixed $cache Item to save to cache.
+	 * @param string $type The type.
+	 */
+	protected function saveCache($cache, $type) {
+		$type = strtolower(trim($type));
+		$dbh = Boo_Db::connect();
+		
+		foreach($cache as $key => $value) {
+			$stmt = $dbh->prepare("INSERT INTO {$this->tableName} (
+				value, 
+				type
+				) VALUES (
+				:value, 
+				:type
+				)");
+			
+			$stmt->bindParam(':value', $value);
+			$stmt->bindParam(':type', $type);
+			
+			try {
+				$stmt->execute();
+			} catch (Exception $e) {
+				trigger_error($e->getMessage(), E_USER_ERROR);
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	/**
+	 * @brief Removes all items from cache.
+	 * @return bool Returns TRUE on success, FALSE otheriwse.
+	 */
+	public function clearCache() {
+		$dbh = Boo_Db::connect();
+		$stmt = $dbh->prepare("DELETE FROM {$this->tableName}");
+		
+		try {
+			$stmt->execute();
+		} catch (Exception $e) {
+			trigger_error($e->getMessage(), E_USER_ERROR);
+			return false;
+		}
+		return true;
+	}
+	
+	/**
+	 * @brief Tests the \c BOO_QRBG_CMD.
+	 * 
+	 * @warning Uses \c var_dump().
+	 * @return bool Returns TRUE on success, FALSE otherwise.
+	 */
+	public function testCmd() {
+		
+		$output = array();
+		$returnVar = false;
+		$cmd = BOO_QRBG_CMD . " --user=\"{$this->username}\" --pass=\"{$this->password}\" --count=\"1\" --type=\"int\" --text";
+		
+		exec($cmd, $output, $returnVar);
+		var_dump($output);
+		var_dump($returnVar);
+		
+		if ($returnVar == 126) {
+			trigger_error('Command ' . BOO_QRBG_CMD . ' is not executable, try chmod +x qrand', E_USER_ERROR);
+			return false;
+		}
+		return true;
+	}
+}

@@ -1,0 +1,4 @@
+# !!! WARNING !!! Removing or editing this file is a potential security risk.
+# Deny access to all files in this directory.
+Order deny,allow
+Deny from all

@@ -1,4 +1,5 @@
 # Introduction
+### Boo Framework - A Web 2.0 Framework for Rapid Application Development
 The Boo Framework is a collection of PHP and jQuery objects joined in a loosely coupled framework designed for rapid application development.
 
 Boo can preform many common tasks including:
